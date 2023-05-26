@@ -1,0 +1,95 @@
+console.log("from script file");
+const endpoint = 'https://www.coursehubiitg.in/api/codingweek/contributions'; 
+
+// Function to fetch the data from the API endpoint
+async function fetchContributions() {
+  try {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log('Error fetching contributions:', error);
+  }
+}
+
+// Function to render the contribution details in the UI
+function renderContributions(contributions) {
+  const container = document.getElementById('rcorners1'); 
+
+  // Clear the container before rendering
+  container.innerHTML = '';
+
+  
+  contributions.forEach(contribution => {
+    const { name, points, avatar } = contribution;
+
+    // Create HTML elements for name, points, and avatar
+    const nameElement = document.createElement('h3');
+    nameElement.textContent = name;
+
+    const pointsElement = document.createElement('p');
+    pointsElement.textContent = `Points: ${points}`;
+
+    const avatarElement = document.createElement('img');
+    avatarElement.src = avatar;
+    avatarElement.alt = `${name}'s Avatar`;
+  
+    // Append the elements to the container
+    container.appendChild(nameElement);
+    container.appendChild(pointsElement);
+    container.appendChild(avatarElement);
+  }
+    const container = document.getElementById('rcorners2');
+
+  // Clear the container before rendering
+  container.innerHTML = '';
+
+  
+  contributions.forEach(contribution => {
+    const { name, points, avatar } = contribution;
+
+    // Create HTML elements for name, points, and avatar
+    const nameElement = document.createElement('h3');
+    nameElement.textContent = name;
+
+    const pointsElement = document.createElement('p');
+    pointsElement.textContent = `Points: ${points}`;
+
+    const avatarElement = document.createElement('img');
+    avatarElement.src = avatar;
+    avatarElement.alt = `${name}'s Avatar`;
+     container.appendChild(nameElement);
+    container.appendChild(pointsElement);
+    container.appendChild(avatarElement);
+   
+}
+ const container = document.getElementById('rcorners3'); 
+
+  // Clear the container before rendering
+  container.innerHTML = '';
+
+
+  contributions.forEach(contribution => {
+    const { name, points, avatar } = contribution;
+
+    // Create HTML elements for name, points, and avatar
+    const nameElement = document.createElement('h3');
+    nameElement.textContent = name;
+
+    const pointsElement = document.createElement('p');
+    pointsElement.textContent = `Points: ${points}`;
+
+    const avatarElement = document.createElement('img');
+    avatarElement.src = avatar;
+    avatarElement.alt = `${name}'s Avatar`;
+     container.appendChild(nameElement);
+    container.appendChild(pointsElement);
+    container.appendChild(avatarElement);
+   
+}
+
+// Fetch contributions and render them when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+  const contributions = await fetchContributions();
+  renderContributions(contributions);
+});
